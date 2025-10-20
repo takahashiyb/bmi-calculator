@@ -107,11 +107,13 @@ input[type="number"] {
   row-gap: var(--spacing-0300);
   padding: var(--spacing-0300);
   border-radius: var(--spacing-0200);
+  font: var(--preset-font-7);
+  letter-spacing: var(--preset-letter-spacing-7);
+  color: var(--color-white);
 
   div {
     display: flex;
     flex-direction: column;
-    color: var(--color-white);
   }
 
   #calculator-result {
@@ -125,12 +127,14 @@ input[type="number"] {
   }
 
   #result-explanation {
-    font: var(--preset-font-7);
-    letter-spacing: var(--preset-letter-spacing-7);
-
     strong {
       font: var(--preset-font-7-bold);
     }
+  }
+
+  .welcome-message {
+    font: var(--preset-font-4);
+    letter-spacing: var(--preset-letter-spacing-4);
   }
 }
 
@@ -142,4 +146,9 @@ input[type="number"] {
     column-gap: var(--spacing-0400);
     border-radius: var(--spacing-0100) 9em 9em var(--spacing-0100);
   }
+}
+
+.result-unempty-state[hidden],
+.result-empty-state[hidden] {
+  display: none;
 }

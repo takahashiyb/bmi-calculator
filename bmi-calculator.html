@@ -38,17 +38,29 @@
         <div class="calculator-input-container">
           <label>Height</label>
           <div class="input-container input-metric">
-            <input id="input-height-metric" type="number" />
+            <input
+              id="input-height-metric"
+              class="measurement metric height"
+              type="number"
+            />
             <p>cm</p>
           </div>
 
           <div class="input-imperial" hidden inert>
             <div class="input-container">
-              <input id="input-height-feet" type="number" />
+              <input
+                id="input-height-feet"
+                class="measurement imperial feet"
+                type="number"
+              />
               <p>ft</p>
             </div>
             <div class="input-container">
-              <input id="input-height-inches" type="number" />
+              <input
+                id="input-height-inches"
+                class="measurement imperial inch"
+                type="number"
+              />
               <p>in</p>
             </div>
           </div>
@@ -56,23 +68,35 @@
         <div class="calculator-input-container">
           <label>Weight</label>
           <div class="input-container input-metric">
-            <input id="input-weight-metric" type="number" />
+            <input
+              id="input-weight-metric"
+              class="measurement metric weight"
+              type="number"
+            />
             <p>kg</p>
           </div>
 
           <div class="input-imperial" hidden inert>
             <div class="input-container">
-              <input id="input-weight-stones" type="number" />
+              <input
+                id="input-weight-stones"
+                class="measurement imperial stones"
+                type="number"
+              />
               <p>st</p>
             </div>
             <div class="input-container">
-              <input id="input-weight-pounds" type="number" />
+              <input
+                id="input-weight-pounds"
+                class="measurement imperial pounds"
+                type="number"
+              />
               <p>lbs</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="calculator-result-wrapper">
+      <div class="calculator-result-wrapper result-unempty-state" hidden inert>
         <div>
           <p>Your BMI is...</p>
           <p
@@ -93,7 +117,11 @@
           </p>
         </div>
       </div>
+      <div class="calculator-result-wrapper result-empty-state">
+        <p class="welcome-message">Welcome!</p>
+        <p>Enter your height and weight and you’ll see your BMI result here</p>
+      </div>
     </section>
-    <script src="./js/bmi-calculator.js"></script>
+    <script src="./js/bmi-calculator.js" type="module"></script>
   </body>
 </html>
