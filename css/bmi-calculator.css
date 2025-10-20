@@ -133,3 +133,13 @@ input[type="number"] {
     }
   }
 }
+
+@media (min-width: 767px) {
+  .calculator-section .calculator-result-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: var(--spacing-0400);
+    border-radius: var(--spacing-0100) 9em 9em var(--spacing-0100);
+  }
+}
