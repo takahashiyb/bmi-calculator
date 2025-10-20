@@ -1,0 +1,241 @@
+/* Reset */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* fonts */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
+}
+
+/* Variables */
+
+:root {
+  /* color */
+  --color-white: rgb(255, 255, 255);
+  --color-black: rgb(0, 0, 0);
+  --color-grey-500: rgb(94, 110, 133);
+  --color-grey-300: rgb(172, 193, 222);
+  --color-blue-900: rgb(37, 51, 71);
+  --color-blue-500: rgb(52, 95, 246);
+  --color-blue-300: rgb(179, 211, 241);
+  --color-blue-100: rgb(225, 231, 254);
+  --gradient-1: linear-gradient(-45deg, rgb(214, 252, 254), rgb(214, 230, 254));
+
+  /* spacing */
+  --spacing-0000: 0px;
+  --spacing-0100: 8px;
+  --spacing-0200: 16px;
+  --spacing-0300: 24px;
+  --spacing-0400: 32px;
+  --spacing-0500: 40px;
+  --spacing-0600: 48px;
+  --spacing-0700: 56px;
+  --spacing-0900: 72px;
+  --spacing-1100: 88px;
+  --spacing-1200: 96px;
+  --spacing-1300: 104px;
+  --spacing-1500: 128px;
+  --spacing-1800: 144px;
+
+  /* font presets */
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* 64px */
+  --preset-font-1: var(--font-weight-semibold) 4rem/1.1 "Inter";
+  --preset-letter-spacing-1: -0.05em;
+
+  /* 48px */
+  --preset-font-2: var(--font-weight-semibold) 3rem/1.1 "Inter";
+  --preset-letter-spacing-2: -0.05em;
+
+  /* 32px */
+  --preset-font-3: var(--font-weight-semibold) 2rem/1.1 "Inter";
+  --preset-letter-spacing-3: -0.05em;
+
+  /* 24px */
+  --preset-font-4: var(--font-weight-semibold) 1.5rem/1.2 "Inter";
+  --preset-letter-spacing-4: -0.05em;
+
+  /* 20px */
+  --preset-font-5: var(--font-weight-semibold) 1.25rem/1.2 "Inter";
+  --preset-letter-spacing-5: 0.05em;
+
+  /* 16px */
+  --preset-font-6: var(--font-weight-regular) 1rem/1.5 "Inter";
+  --preset-font-6-semibold: var(--font-weight-semibold) 1rem/1.5 "Inter";
+  --preset-letter-spacing-6: 0em;
+
+  /* 14px */
+  --preset-font-7: var(--font-weight-regular) 0.875rem/1.5 "Inter";
+  --preset-font-7-bold: var(--font-weight-bold) 0.875rem/1.5 "Inter";
+  --preset-letter-spacing-7: 0em;
+}
+
+/* Default */
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Font setting template */
+
+html {
+  font-family: "Inter";
+  font-size: var(--fontsize-preset-5);
+  font-weight: var(--fontweight-preset-5);
+  line-height: var(--lineheight-preset-5);
+  letter-spacing: var(--letterspacing-preset-5);
+}
+
+.top-level-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 100px;
+}
+
+.calculator-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-0300);
+  border-radius: var(--spacing-0100);
+  padding: var(--spacing-0300);
+}
+
+.calculator-section header {
+  h2 {
+    font: var(--preset-font-4);
+    letter-spacing: var(--preset-letter-spacing-4);
+    color: var(--color-blue-900);
+  }
+}
+
+.calculator-section .calculator-units {
+  ul {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--spacing-0300);
+    list-style: none;
+  }
+  ul li {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--spacing-0100);
+    width: 100%;
+  }
+
+  ul li label {
+    font: var(--preset-font-6-semibold);
+    letter-spacing: var(--preset-letter-spacing-6);
+    color: var(--color-blue-900);
+  }
+}
+
+input[type="number"] {
+  border-radius: var(--spacing-0200);
+  font: var(--preset-font-4);
+  letter-spacing: var(--preset-letter-spacing-4);
+  border: none;
+}
+
+.input-imperial {
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--spacing-0200);
+
+  div {
+    width: 100%;
+  }
+
+  input[type="number"] {
+    flex-grow: 1;
+    min-width: 0px;
+    width: 100%;
+  }
+}
+
+.input-metric {
+  width: 100%;
+}
+
+.calculator-section .calculator-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator-input-container {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font: var(--preset-font-6);
+    letter-spacing: var(--preset-letter-spacing-6);
+    color: var(--color-grey-500);
+    padding: var(--spacing-0200) var(--spacing-0000);
+  }
+}
+
+.input-container {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid var(--color-blue-900);
+  padding: var(--spacing-0300);
+  padding-top: var(--spacing-0400);
+  border-radius: var(--spacing-0200);
+
+  p {
+    font: var(--preset-font-4);
+    letter-spacing: var(--preset-letter-spacing-4);
+    color: var(--color-blue-500);
+  }
+}
+
+.calculator-section .calculator-result-wrapper {
+  background-color: var(--color-blue-500);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-0300);
+  padding: var(--spacing-0300);
+  border-radius: var(--spacing-0200);
+
+  div {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-white);
+  }
+
+  #calculator-result {
+    font: var(--preset-font-6-semibold);
+    letter-spacing: var(--preset-letter-spacing-6);
+  }
+
+  #calculator-result {
+    font: var(--preset-font-1);
+    letter-spacing: var(--preset-letter-spacing-1);
+  }
+
+  #result-explanation {
+    font: var(--preset-font-7);
+    letter-spacing: var(--preset-letter-spacing-7);
+
+    strong {
+      font: var(--preset-font-7-bold);
+    }
+  }
+}

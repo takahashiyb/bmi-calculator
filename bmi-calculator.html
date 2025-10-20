@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <section class="calculator-section" aria-label="calculator section">
+      <header>
+        <h2>Enter your details below</h2>
+      </header>
+      <div class="calculator-units" role="radiogroup">
+        <ul>
+          <li>
+            <input id="radio1" name="units" type="radio" checked /><label
+              for="radio1"
+            >
+              Metric</label
+            >
+          </li>
+          <li>
+            <input id="radio2" name="units" type="radio" /><label for="radio2"
+              >Imperial</label
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="calculator-inputs">
+        <div class="calculator-input-container">
+          <label>Height</label>
+          <div class="input-container">
+            <input
+              id="input-height-metric"
+              class="input-metric"
+              type="number"
+            />
+            <p>cm</p>
+          </div>
+
+          <div class="input-imperial">
+            <div class="input-container">
+              <input id="input-height-feet" type="number" />
+              <p>ft</p>
+            </div>
+            <div class="input-container">
+              <input id="input-height-inches" type="number" />
+              <p>in</p>
+            </div>
+          </div>
+        </div>
+        <div class="calculator-input-container">
+          <label>Weight</label>
+          <div class="input-container">
+            <input
+              id="input-weight-metric"
+              class="input-metric"
+              type="number"
+            />
+            <p>kg</p>
+          </div>
+
+          <div class="input-imperial">
+            <div class="input-container">
+              <input id="input-weight-stones" type="number" />
+              <p>st</p>
+            </div>
+            <div class="input-container">
+              <input id="input-weight-pounds" type="number" />
+              <p>lbs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="calculator-result-wrapper">
+        <div>
+          <p>Your BMI is...</p>
+          <p
+            id="calculator-result"
+            aria-describedby="result-explanation"
+            aria-label="calculator result"
+          >
+            fake
+            <!-- add score -->
+          </p>
+        </div>
+        <div>
+          <p id="result-explanation">
+            Your BMI suggests you're
+            <span id="bmi-classification">fake<!-- add classification --></span>
+            . Your ideal weight is between
+            <strong id="bmi-range">fake-fake<!-- add range --></strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
