@@ -94,6 +94,8 @@ function checkAllInputValues() {
 
   if (!height.equals(zero) && !weight.equals(zero)) {
     const bmi = calculateBmi(height, weight);
+    const bmiClassObject = classifyBmi(bmi);
+    const bmiHealthyRange = calculateHealthyBmiRange(height, measurementUnits);
 
     const elementHide = document.querySelector(
       ".calculator-result-wrapper.result-empty-state"
@@ -110,6 +112,12 @@ function checkAllInputValues() {
 
     const displayBmi = document.getElementById("calculator-result");
     displayBmi.innerHTML = bmi.toFixed(2);
+
+    const displayBmiClass = document.getElementById("bmi-classification");
+    displayBmiClass.innerHTML = bmiClassObject;
+
+    const displayBmiRange = document.getElementById("bmi-range");
+    displayBmiRange.innerHTML = bmiHealthyRange;
   }
 }
 
@@ -174,3 +182,58 @@ const bmiRanges = {
     max: 100,
   },
 };
+
+function classifyBmi(bmi) {
+  for (let i = 0; i < Object.keys(bmiRanges).length; i++) {
+    const classification = Object.keys(bmiRanges)[i];
+    const details = Object.values(bmiRanges)[i];
+    const min = details.min;
+    const max = details.max;
+
+    if (bmi > min && bmi < max) {
+      return classification;
+    }
+  }
+}
+
+function calculateHealthyBmiRange(height, units) {
+  console.log(height);
+  const heightSquared = height.pow(2);
+  const minimumBmi = new Decimal("18.6");
+  const maximumBmi = new Decimal("24.9");
+  const minimum = heightSquared.mul(minimumBmi);
+  const maximum = heightSquared.mul(maximumBmi);
+
+  if (units === "metric") {
+    return `${minimum.toFixed(2)}kg - ${maximum.toFixed(2)}kg`;
+  }
+  if (units === "imperial") {
+    const conversionStones = new Decimal("6.35029");
+    const conversionPounds = new Decimal("0.453592");
+
+    const minimumStones = minimum.div(conversionStones);
+    const minimumRemainder = minimum.mod(conversionStones);
+    const minimumPounds = minimumRemainder.div(conversionPounds);
+    const minimumStonesDisplay =
+      minimumStones.toFixed(0) !== "0" ? `${minimumStones.toFixed(0)}st` : "";
+    const minimumPoundsDisplay =
+      minimumPounds.toFixed(0) !== "0" ? `${minimumPounds.toFixed(0)}lbs` : "";
+    const spaceBetweenMinimum =
+      (minimumStonesDisplay === "") | (minimumPoundsDisplay === "") ? "" : " ";
+
+    const minimumConverted = `${minimumStonesDisplay}${spaceBetweenMinimum}${minimumPoundsDisplay}`;
+
+    const maximumStones = maximum.div(conversionStones);
+    const maximumRemainder = maximum.mod(conversionStones);
+    const maximumPounds = maximumRemainder.div(conversionPounds);
+    const maximumStonesDisplay =
+      maximumStones.toFixed(0) !== "0" ? `${maximumStones.toFixed(0)}st` : "";
+    const maximumPoundsDisplay =
+      maximumPounds.toFixed(0) !== "0" ? `${maximumPounds.toFixed(0)}lbs` : "";
+    const spaceBetweenMaximum =
+      (maximumStonesDisplay === "") | (maximumPoundsDisplay === "") ? "" : " ";
+    const maximumConverted = `${maximumStonesDisplay}${spaceBetweenMaximum}${maximumPoundsDisplay}`;
+
+    return `${minimumConverted} - ${maximumConverted}`;
+  }
+}
