@@ -138,7 +138,16 @@ input[type="number"] {
   }
 }
 
+.result-unempty-state[hidden],
+.result-empty-state[hidden] {
+  display: none;
+}
+
 @media (min-width: 767px) {
+  .calculator-section {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
   .calculator-section .calculator-result-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -146,9 +155,9 @@ input[type="number"] {
     column-gap: var(--spacing-0400);
     border-radius: var(--spacing-0100) 9em 9em var(--spacing-0100);
   }
-}
 
-.result-unempty-state[hidden],
-.result-empty-state[hidden] {
-  display: none;
+  .calculator-section .calculator-inputs.metric {
+    flex-direction: row;
+    column-gap: var(--spacing-0300);
+  }
 }

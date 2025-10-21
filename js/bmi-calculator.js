@@ -14,6 +14,7 @@ function changeMeasurementUnits(event) {
   const unit = document.getElementById("measurement-selection");
   const metric = document.querySelectorAll(".input-metric");
   const imperial = document.querySelectorAll(".input-imperial");
+  const inputDisplay = document.querySelector(".calculator-inputs");
 
   if (event.target.id === "radio2") {
     imperial.forEach((element) => {
@@ -26,6 +27,8 @@ function changeMeasurementUnits(event) {
       element.setAttribute("hidden", "");
     });
     unit.setAttribute("aria-selected", "imperial");
+    inputDisplay.classList.add("imperial");
+    inputDisplay.classList.remove("metric");
   } else {
     imperial.forEach((element) => {
       element.querySelectorAll(".measurement").forEach((element) => {
@@ -39,6 +42,8 @@ function changeMeasurementUnits(event) {
       element.removeAttribute("hidden", "");
     });
     unit.setAttribute("aria-selected", "metric");
+    inputDisplay.classList.add("metric");
+    inputDisplay.classList.remove("imperial");
   }
 }
 

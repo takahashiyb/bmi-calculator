@@ -29,7 +29,128 @@
             to evaluate your overall health and well-being.
           </p>
         </header>
+
+        <section class="calculator-section" aria-label="calculator section">
+          <header>
+            <h2>Enter your details below</h2>
+          </header>
+          <div
+            id="measurement-selection"
+            class="calculator-units"
+            role="radiogroup"
+            aria-selected="metric"
+          >
+            <ul>
+              <li>
+                <input id="radio1" name="units" type="radio" checked /><label
+                  for="radio1"
+                >
+                  Metric</label
+                >
+              </li>
+              <li>
+                <input id="radio2" name="units" type="radio" /><label
+                  for="radio2"
+                  >Imperial</label
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="calculator-inputs metric">
+            <div class="calculator-input-container">
+              <label>Height</label>
+              <div class="input-container input-metric">
+                <input
+                  id="input-height-metric"
+                  class="measurement metric height"
+                  type="number"
+                />
+                <p>cm</p>
+              </div>
+
+              <div class="input-imperial" hidden inert>
+                <div class="input-container">
+                  <input
+                    id="input-height-feet"
+                    class="measurement imperial feet"
+                    type="number"
+                  />
+                  <p>ft</p>
+                </div>
+                <div class="input-container">
+                  <input
+                    id="input-height-inches"
+                    class="measurement imperial inch"
+                    type="number"
+                  />
+                  <p>in</p>
+                </div>
+              </div>
+            </div>
+            <div class="calculator-input-container">
+              <label>Weight</label>
+              <div class="input-container input-metric">
+                <input
+                  id="input-weight-metric"
+                  class="measurement metric weight"
+                  type="number"
+                />
+                <p>kg</p>
+              </div>
+
+              <div class="input-imperial" hidden inert>
+                <div class="input-container">
+                  <input
+                    id="input-weight-stones"
+                    class="measurement imperial stones"
+                    type="number"
+                  />
+                  <p>st</p>
+                </div>
+                <div class="input-container">
+                  <input
+                    id="input-weight-pounds"
+                    class="measurement imperial pounds"
+                    type="number"
+                  />
+                  <p>lbs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="calculator-result-wrapper result-unempty-state"
+            hidden
+            inert
+          >
+            <div>
+              <p>Your BMI is...</p>
+              <p
+                id="calculator-result"
+                aria-describedby="result-explanation"
+                aria-label="calculator result"
+              >
+                <!-- add score -->
+              </p>
+            </div>
+            <div>
+              <p id="result-explanation">
+                Your BMI suggests you're
+                <span id="bmi-classification"><!-- add classification --></span
+                >. Your ideal weight is between
+                <strong id="bmi-range"><!-- add range --></strong>.
+              </p>
+            </div>
+          </div>
+          <div class="calculator-result-wrapper result-empty-state">
+            <p class="welcome-message">Welcome!</p>
+            <p>
+              Enter your height and weight and you’ll see your BMI result here
+            </p>
+          </div>
+        </section>
       </div>
     </main>
+    <script src="./js/bmi-calculator.js" type="module"></script>
   </body>
 </html>
