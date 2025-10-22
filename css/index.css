@@ -92,30 +92,40 @@ html {
 
 /* Default */
 
-main {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--spacing-1200);
-}
-
 html {
   font: var(--preset-font-6);
   letter-spacing: var(--preset-letter-spacing-6);
-  color: var(--color-blue-900);
+  color: var(--color-grey-500);
 }
 /* Styling */
 
+main {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-1200);
+  max-width: 1140px;
+  margin-inline: auto;
+  padding: var(--spacing-0400) var(--spacing-0000);
+}
+
+@media (min-width: 1023px) {
+  main {
+    padding: var(--spacing-1100) var(--spacing-0000);
+  }
+}
+
 .visual-group-1 > *,
 .visual-group-2,
-.visual-group-3 {
+.visual-group-3,
+.visual-group-4 {
   padding-inline: var(--spacing-0200);
 }
 
 @media (min-width: 767px) {
   .visual-group-1 > *,
   .visual-group-2,
-  .visual-group-3 {
+  .visual-group-3,
+  .visual-group-4 {
     padding-inline: var(--spacing-0500);
   }
 }
@@ -123,7 +133,8 @@ html {
 @media (min-width: 1023px) {
   .visual-group-1 > *,
   .visual-group-2,
-  .visual-group-3 {
+  .visual-group-3,
+  .visual-group-4 {
     padding-inline: var(--spacing-1800);
   }
 }
@@ -153,12 +164,13 @@ html {
 }
 
 .top-logo-section {
-  align-self: center;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 1023px) {
   .top-logo-section {
-    align-self: start;
+    justify-content: flex-start;
   }
 }
 
@@ -183,7 +195,6 @@ html {
 
 @media (min-width: 1023px) {
   .visual-group-1 {
-    padding: 200px 0;
     position: relative;
   }
 
@@ -225,6 +236,7 @@ html {
   img {
     max-width: 400px;
     width: 100%;
+    justify-self: center;
   }
 
   .text-content {
@@ -296,6 +308,9 @@ html {
   display: flex;
   flex-direction: column;
   row-gap: var(--spacing-0500);
+  position: relative;
+  padding-top: var(--spacing-1200);
+  padding-bottom: var(--spacing-1200);
 
   div {
     display: flex;
@@ -313,7 +328,19 @@ html {
   .text-content-title {
     font: var(--preset-font-4);
     letter-spacing: var(--preset-letter-spacing-4);
+    color: var(--color-blue-900);
   }
+}
+
+.visual-group-3::before {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  background-image: var(--gradient-1);
+  opacity: 0.25;
+  content: "";
+  inset: 0;
+  z-index: -1;
 }
 
 @media (min-width: 767px) {
@@ -343,5 +370,117 @@ html {
       flex-direction: column;
       align-items: start;
     }
+  }
+
+  .visual-group-3::before {
+    border-radius: var(--spacing-0200);
+  }
+}
+
+.visual-group-4 {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-0700);
+  /* background-color: red; */
+
+  header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: var(--spacing-0400);
+    h2 {
+      font: var(--preset-font-3);
+      letter-spacing: var(--preset-font-3);
+      color: var(--color-blue-900);
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-0200);
+  }
+
+  div div {
+    padding: var(--spacing-0200);
+    border-radius: var(--spacing-0200);
+    box-shadow: 5px 10px 10px rgba(179, 211, 241, 0.4);
+  }
+
+  div header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: var(--spacing-0300);
+
+    h3 {
+      font: var(--preset-font-5);
+      letter-spacing: var(--preset-letter-spacing-5);
+      color: var(--color-blue-900);
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .visual-group-4 div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: var(--spacing-0300);
+
+    div {
+      flex-basis: 310px;
+      justify-content: flex-start;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .visual-group-4 {
+    position: relative;
+  }
+  .visual-group-4 > header {
+    position: absolute;
+    top: var(--spacing-0000);
+    left: var(--spacing-1800);
+    max-width: 500px;
+    text-align: start;
+    row-gap: var(--spacing-0300);
+
+    h2 {
+      font: var(--preset-font-2);
+      letter-spacing: var(--preset-letter-spacing-2);
+    }
+    .decorative-line {
+      margin-left: 20%;
+    }
+  }
+  .visual-group-4 div {
+    padding-top: 50px;
+    max-width: 960px;
+    align-self: flex-end;
+    justify-content: flex-end;
+    row-gap: var(--spacing-0400);
+
+    div {
+      flex-shrink: 1;
+      width: 300px;
+    }
+
+    div:first-child {
+      margin-left: 500px;
+      margin-right: auto;
+      width: auto;
+    }
+
+    div:last-child {
+      margin-right: auto;
+    }
+  }
+
+  .decorative-line {
+    display: block;
+    width: 85px;
+    height: 200px;
   }
 }
