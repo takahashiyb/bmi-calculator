@@ -45,6 +45,21 @@ function changeMeasurementUnits(event) {
     inputDisplay.classList.add("metric");
     inputDisplay.classList.remove("imperial");
   }
+
+  // Resets to welcome message
+
+  const elementWelcome = document.querySelector(
+    ".calculator-result-wrapper.result-empty-state"
+  );
+  const elementHide = document.querySelector(
+    ".calculator-result-wrapper.result-unempty-state"
+  );
+
+  elementHide.setAttribute("inert", "");
+  elementHide.setAttribute("hidden", "");
+
+  elementWelcome.removeAttribute("inert");
+  elementWelcome.removeAttribute("hidden");
 }
 
 const measurementInputs = document.querySelectorAll(".measurement");
@@ -242,3 +257,26 @@ function calculateHealthyBmiRange(height, units) {
     return `${minimumConverted} - ${maximumConverted}`;
   }
 }
+
+function reassignClickToContainer() {
+  const inputs = document.querySelectorAll(".measurement");
+
+  for (let i = 0; i < inputs.length; i++) {
+    const input = inputs[i];
+    const parent = input.parentElement;
+
+    parent.addEventListener("click", () => {
+      input.focus();
+    });
+
+    input.addEventListener("focus", () => {
+      parent.classList.add("active");
+    });
+
+    input.addEventListener("focusout", () => {
+      parent.classList.remove("active");
+    });
+  }
+}
+
+reassignClickToContainer();
