@@ -151,10 +151,9 @@ main {
   inset: 0;
   background-repeat: no-repeat;
   background-image: var(--gradient-1);
-  background-size: cover;
   z-index: -1;
-  height: 70%;
   border-radius: 0 0 50px;
+  margin-top: -100px;
 }
 
 .top-level-container {
@@ -200,8 +199,7 @@ main {
 
   .visual-group-1::before {
     width: 70%;
-    height: 90%;
-
+    height: 140%;
     content: "";
     position: absolute;
     inset: 0;
@@ -381,7 +379,6 @@ main {
   display: flex;
   flex-direction: column;
   row-gap: var(--spacing-0700);
-  /* background-color: red; */
 
   header {
     display: flex;

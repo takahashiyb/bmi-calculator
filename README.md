@@ -45,8 +45,8 @@ Add the individual's healthy weight range based on the lower and upper BMI categ
 
 ### Links
 
-- Solution URL: [click here for GitHub repository](https://github.com/takahashiyb/)
-- Live Site URL: [click here for Live Site](https://github.com/takahashiyb/)
+- Solution URL: [click here for GitHub repository](https://github.com/takahashiyb/bmi-calculator)
+- Live Site URL: [click here for Live Site](https://takahashiyb.github.io/bmi-calculator/)
 
 ## My process
 
