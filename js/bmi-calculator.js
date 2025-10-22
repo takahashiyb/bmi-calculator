@@ -1,6 +1,22 @@
 import Decimal from "../node_modules/decimal.js/decimal.mjs";
 
+// Runs all at compile
+
 giveRadioButtonFunctions();
+// -- specifically switches from metric to imperial vice versa.
+
+reassignClickToContainer();
+// -- when parent div is clicked, it focuses on the containing input
+
+calculateBmiAfterNumberInput();
+// -- first converts any unit to:
+// -- - meters in height and
+// -- - kg in weight
+// -- calculates bmi [function: calculatebmi()]
+// -- classifies the bmi based on a list of ranges
+// -- calculates the weight range at which a person of a specific height is considered healthy.
+
+// Functions
 
 function giveRadioButtonFunctions() {
   const unit = document.getElementById("measurement-selection");
@@ -10,6 +26,7 @@ function giveRadioButtonFunctions() {
   });
 }
 
+// used in giveRadioButtonFunctions()
 function changeMeasurementUnits(event) {
   const unit = document.getElementById("measurement-selection");
   const metric = document.querySelectorAll(".input-metric");
@@ -26,7 +43,7 @@ function changeMeasurementUnits(event) {
       element.setAttribute("inert", "");
       element.setAttribute("hidden", "");
     });
-    unit.setAttribute("aria-selected", "imperial");
+    unit.setAttribute("data-unit-selected", "imperial");
     inputDisplay.classList.add("imperial");
     inputDisplay.classList.remove("metric");
   } else {
@@ -41,7 +58,7 @@ function changeMeasurementUnits(event) {
       element.removeAttribute("inert", "");
       element.removeAttribute("hidden", "");
     });
-    unit.setAttribute("aria-selected", "metric");
+    unit.setAttribute("data-unit-selected", "metric");
     inputDisplay.classList.add("metric");
     inputDisplay.classList.remove("imperial");
   }
@@ -62,18 +79,20 @@ function changeMeasurementUnits(event) {
   elementWelcome.removeAttribute("hidden");
 }
 
-const measurementInputs = document.querySelectorAll(".measurement");
+function calculateBmiAfterNumberInput() {
+  const measurementInputs = document.querySelectorAll(".measurement");
 
-measurementInputs.forEach((input) => {
-  input.addEventListener("change", () => {
-    checkAllInputValues();
+  measurementInputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      checkAllInputValues();
+    });
   });
-});
+}
 
 function checkAllInputValues() {
   const unit = document.getElementById("measurement-selection");
 
-  const measurementUnits = unit.getAttribute("aria-selected");
+  const measurementUnits = unit.getAttribute("data-unit-selected");
 
   let height = 0;
   let weight = 0;
@@ -141,6 +160,7 @@ function checkAllInputValues() {
   }
 }
 
+// Used in calculateBmiAfterNumberInput()
 function calculateBmi(height, weight) {
   const heightSquared = height.pow(2);
   const bmi = weight.div(heightSquared);
@@ -148,6 +168,7 @@ function calculateBmi(height, weight) {
   return bmi;
 }
 
+// Used in calculateBmiAfterNumberInput()
 function convertMetricHeight(feet, inch) {
   const conversionMetersFromFeet = new Decimal("0.3048");
 
@@ -162,6 +183,7 @@ function convertMetricHeight(feet, inch) {
   return height;
 }
 
+// Used in calculateBmiAfterNumberInput()
 function convertMetricWeight(stones, pounds) {
   const conversionKilogramsFromStones = new Decimal("6.35029");
 
@@ -176,6 +198,7 @@ function convertMetricWeight(stones, pounds) {
   return weight;
 }
 
+// Used in classifyBmi(bmi):
 const bmiRanges = {
   underweight: {
     min: 0,
@@ -203,6 +226,7 @@ const bmiRanges = {
   },
 };
 
+// Used in calculateBmiAfterNumberInput()
 function classifyBmi(bmi) {
   for (let i = 0; i < Object.keys(bmiRanges).length; i++) {
     const classification = Object.keys(bmiRanges)[i];
@@ -216,6 +240,7 @@ function classifyBmi(bmi) {
   }
 }
 
+// Used in calculateBmiAfterNumberInput()
 function calculateHealthyBmiRange(height, units) {
   console.log(height);
   const heightSquared = height.pow(2);
@@ -278,5 +303,3 @@ function reassignClickToContainer() {
     });
   }
 }
-
-reassignClickToContainer();

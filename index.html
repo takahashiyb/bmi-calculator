@@ -3,24 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/bmi-calculator.css" />
-
     <title>Frontend Mentor | Body Mass Index Calculator</title>
   </head>
   <body>
     <main>
       <div class="visual-group-1">
         <div class="top-logo-section">
-          <img src="./assets/images/logo.svg" alt="" />
+          <img src="./assets/images/logo.svg" alt="site logo" />
         </div>
         <div class="top-level-container">
           <header>
@@ -32,7 +29,6 @@
               point to evaluate your overall health and well-being.
             </p>
           </header>
-
           <section class="calculator-section" aria-label="calculator section">
             <header>
               <h2>Enter your details below</h2>
@@ -41,8 +37,8 @@
               id="measurement-selection"
               class="calculator-units"
               role="radiogroup"
-              aria-selected="metric"
-              role-label="select measurement system, metric or imperial"
+              data-unit-selected="metric"
+              aria-label="select measurement system, metric or imperial"
             >
               <ul>
                 <li>
@@ -63,16 +59,15 @@
             <div class="calculator-inputs metric">
               <div class="calculator-input-container">
                 <label>Height</label>
-                <div class="input-container input-metric">
+                <div class="input-container input-metric" role="press">
                   <input
                     id="input-height-metric"
                     class="measurement metric height"
                     type="number"
                     aria-label="Enter height in centimeters"
                   />
-                  <p>cm</p>
+                  <p role="presentation">cm</p>
                 </div>
-
                 <div class="input-imperial" hidden inert>
                   <div class="input-container">
                     <input
@@ -81,7 +76,7 @@
                       type="number"
                       aria-label="Enter height in feet"
                     />
-                    <p>ft</p>
+                    <p role="presentation">ft</p>
                   </div>
                   <div class="input-container">
                     <input
@@ -90,7 +85,7 @@
                       type="number"
                       aria-label="Enter height in inches"
                     />
-                    <p>in</p>
+                    <p role="presentation">in</p>
                   </div>
                 </div>
               </div>
@@ -103,9 +98,8 @@
                     type="number"
                     aria-label="Enter weight in kilograms"
                   />
-                  <p>kg</p>
+                  <p role="presentation">kg</p>
                 </div>
-
                 <div class="input-imperial" hidden inert>
                   <div class="input-container">
                     <input
@@ -114,7 +108,7 @@
                       type="number"
                       aria-label="Enter weight in stones"
                     />
-                    <p>st</p>
+                    <p role="presentation">st</p>
                   </div>
                   <div class="input-container">
                     <input
@@ -123,7 +117,7 @@
                       type="number"
                       aria-label="Enter weight in pounds"
                     />
-                    <p>lbs</p>
+                    <p role="presentation">lbs</p>
                   </div>
                 </div>
               </div>
@@ -163,9 +157,6 @@
         </div>
       </div>
       <section id="bmi-result-overview" class="visual-group-2">
-        <!-- <div class="image-content">
-        </div> -->
-
         <img
           src="./assets/images/image-man-eating.webp"
           alt="picture of a man eating"
@@ -173,6 +164,7 @@
         <div class="text-content">
           <div class="decorative-line">
             <img
+              role="presentation"
               src="./assets/images/pattern-curved-line-left.svg"
               alt="decorative line"
             />
@@ -193,7 +185,11 @@
       </section>
       <section id="health-promotion-section" class="visual-group-3">
         <div>
-          <img src="./assets/images/icon-eating.svg" alt="" />
+          <img
+            src="./assets/images/icon-eating.svg"
+            alt="healthy eating icon"
+            role="presentation"
+          />
           <div class="text-content">
             <p
               class="text-content-title"
@@ -211,7 +207,7 @@
           <img
             src="./assets/images/icon-exercise.svg"
             alt="exercise icon"
-            aria-describedby="regular-exercise-description"
+            role="presentation"
           />
           <div class="text-content">
             <p
@@ -227,7 +223,11 @@
           </div>
         </div>
         <div>
-          <img src="./assets/images/icon-sleep.svg" alt="sleep icon" />
+          <img
+            src="./assets/images/icon-sleep.svg"
+            alt="sleep icon"
+            role="presentation"
+          />
           <div class="text-content">
             <p
               aria-describedby="adequate-sleep-description"
@@ -242,7 +242,6 @@
           </div>
         </div>
       </section>
-
       <section id="bmi-limitations-section" class="visual-group-4">
         <header>
           <h2 aria-describedby="limitations-description">Limitations of BMI</h2>
@@ -255,41 +254,49 @@
           <img
             class="decorative-line"
             src="./assets/images/pattern-curved-line-right.svg"
-            alt=""
+            alt="decorative line"
+            role="presentation"
           />
         </header>
         <div>
           <div>
             <header>
-              <img src="./assets/images/icon-gender.svg" alt="gender icon" />
+              <img
+                src="./assets/images/icon-gender.svg"
+                alt="gender icon"
+                role="presentation"
+              />
               <h3 aria-describedby="limitation-gender-description">Gender</h3>
             </header>
-
             <p id="limitation-gender-description">
               The development and body fat composition of girls and boys vary
               with age. Consequently, a child's age and gender are considered
               when evaluating their BMI.
             </p>
           </div>
-
           <div>
             <header>
-              <img src="./assets/images/icon-age.svg" alt="age icon" />
+              <img
+                src="./assets/images/icon-age.svg"
+                alt="age icon"
+                role="presentation"
+              />
               <h3 aria-describedby="limitation-age-description">Age</h3>
             </header>
-
             <p id="limitation-age-description">
               In aging individuals, increased body fat and muscle loss may cause
               BMI to underestimate body fat content.
             </p>
           </div>
-
           <div>
             <header>
-              <img src="./assets/images/icon-muscle.svg" alt="muscle icon" />
+              <img
+                src="./assets/images/icon-muscle.svg"
+                alt="muscle icon"
+                role="presentation"
+              />
               <h3 aria-describedby="limitation-muscle-description">Muscle</h3>
             </header>
-
             <p id="limitation-muscle-description">
               BMI may misclassify muscular individuals as overweight or obese,
               as it doesn't differentiate muscle from fat.
@@ -300,25 +307,27 @@
               <img
                 src="./assets/images/icon-pregnancy.svg"
                 alt="pregnancy icon"
+                role="presentation"
               />
               <h3 aria-describedby="limitation-pregnancy-description">
                 Pregnancy
               </h3>
             </header>
-
             <p id="limitation-pregnancy-description">
               Expectant mothers experience weight gain due to their growing
               baby. Maintaining a healthy pre-pregnancy BMI is advisable to
               minimise health risks for both mother and child.
             </p>
           </div>
-
           <div>
             <header>
-              <img src="./assets/images/icon-race.svg" alt="race icon" />
+              <img
+                src="./assets/images/icon-race.svg"
+                alt="race icon"
+                role="presentation"
+              />
               <h3 aria-describedby="limitation-race-description">Race</h3>
             </header>
-
             <p id="limitation-race-description">
               Certain health concerns may affect individuals of some Black and
               Asian origins at lower BMIs than others. To learn more, it is
